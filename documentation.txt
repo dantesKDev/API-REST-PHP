@@ -1,0 +1,72 @@
+API REST
+
+DUMP SQL : db_wshop.sql
+
+- Routeur, rediriger les actions vers le controleur : 
+	api/magasins.php
+
+- Controlleur, gere les fonctionnalités entre le routeur, la vue et le modèle 
+	: controller/controller.php
+
+- Model, manipulation des données : 
+	model/model.php
+
+- Vue, affichage des résultats : 
+	templates/getView.php
+	templates/postView.php
+	templates/updateView.php
+
+- Public: js/
+	  css/
+	  ...
+
+API Magasin
+
+Cette API permet d'accéder à une liste de magasins selon le nom et/ou l'adresse.
+Elle permet d'ajouter, de supprimer et la mettre à jour de la selection.
+
+URL: api/magasins
+
+Parametre disponible : 
+	-> nom
+	-> adresse
+
+- Afin d'accéder à la liste:
+	Methode: GET
+	
+	Parametre: nom (chaîne de caractères), adresse (chaîne de caractères)
+	Reponse: un tableau JSON contenant la liste des magasins
+
+		Ex param: api/magasins?nom=
+
+- Ajouter à la liste :
+	Methode: POST
+
+	Parametre: nom (chaîne de caractères), adresse (chaîne de caractères)
+	Reponse: objet JSON contenant "succes" (boolean)
+
+		Ex param: api/magasins?nom=...&adresse=
+		(Info: les deux paramètres sont obligatoires)
+	
+
+- Mettre à jour:
+	Methode: PUT
+
+	Parametre: nom (chaîne de caractères), adresse (chaîne de caractères), l'id
+	Reponse: objet JSON contenant "succes" (boolean)
+
+		Ex param: api/magasins?id=...&nom=...&adresse=..
+		(Info: les trois paramètres sont obligatoires)
+
+- Supprimer:
+	Methode: DELETE
+
+	Parametre: id du magasin
+	Reponse: objet JSON contenant "succes" (boolean)
+
+		Ex param : api/magasins?id=...
+		(Info: seul l'id est requis)
+
+
+
+    
